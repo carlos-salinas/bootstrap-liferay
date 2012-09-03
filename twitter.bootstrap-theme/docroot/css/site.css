@@ -1,0 +1,44 @@
+
+#why .row {
+    margin-bottom: 20px;
+}
+
+#why .icon-large {
+    font-size: 22px;
+    padding-right: 4px;
+    text-align: center;
+}
+
+#social-buttons {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#social-buttons .btn {
+    font-family: museo-slab,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 21px;
+    padding: 4px 10px 1px;
+}
+
+#social-buttons .count.btn {
+    background-color: #FFFFFF;
+    background-image: -moz-linear-gradient(center top , #FFFFFF, #FFFFFF);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    font-family: proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: normal;
+}
+
+#social-buttons .count.btn:hover, #social-buttons .count.btn:active, #social-buttons .count.btn.active, #social-buttons .count.btn.disabled, #social-buttons .count.btn[disabled] {
+    background-color: #FFFFFF;
+}
+
+#social-buttons .count.btn:active, #social-buttons .count.btn.active {
+		
+}
+
+#social-buttons .watch, #social-buttons .fork {
+    margin-right: 30px;
+}

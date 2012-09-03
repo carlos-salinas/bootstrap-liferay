@@ -1,0 +1,50 @@
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+@import url(bootstrap.css);
+
+@import url(font-awesome.css);
+
+@import url(font-awesome-ie7.css);
+
+@import url(site.css);
+
+body{
+	padding-top: 80px;
+	background: url("../images/brillant.png") repeat scroll 0 0 transparent;
+}
+
+@import url(bootstrap-responsive.css);
+
+
+/* .portlet-content{ */
+	
+/* 	padding-left: 0px; */
+/* 	padding-right: 0px; */
+/* } */
+
+
+.navbar-fixed-top, .navbar-fixed-buttom{
+	
+	z-index: 1000;
+}
+
+.navbar-fixed-top .brand {
+    -moz-transition: all 0.2s linear 0s;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+    color: #000000;
+    float: right;
+    font-weight: bold;
+    margin-left: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+}
+
+.navbar .btn-navbar{
+	float: left;
+}
+
+#portlet_58 .portlet-title{
+	display: none;
+}
+

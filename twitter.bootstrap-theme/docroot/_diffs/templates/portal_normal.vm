@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="#language("lang.dir")" dir="#language("lang.dir")" lang="$w3c_language_id">
+
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+		
+	<!--Twitter Bootstrap styles -->
+	#css("$javascript_folder/google-code-prettify/prettify.css")
+		
+	$theme.include($top_head_include)
+</head>
+
+<body data-offset="50" data-target="subnav" >
+
+$theme.include($body_top_include)
+
+<div id="wrapper">
+	
+	<header id="banner" role="banner">
+		
+		#if ($has_navigation || $is_signed_in)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+	</header>
+
+	<div id="content">
+		
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+	#parse ("$full_templates_path/footer.vm")
+	
+</div>
+
+$theme.include($body_bottom_include)
+
+	<!-- Twitter Bootstrap  javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	
+	#js("http://platform.twitter.com/widgets.js")
+	#js("$javascript_folder/jquery.js")
+	#js("$javascript_folder/google-code-prettify/prettify.js")
+	#js("$javascript_folder/bootstrap-transition.js")
+	#js("$javascript_folder/bootstrap-alert.js")
+	#js("$javascript_folder/bootstrap-modal.js")
+	#js("$javascript_folder/bootstrap-dropdown.js")
+	#js("$javascript_folder/bootstrap-scrollspy.js")
+	#js("$javascript_folder/bootstrap-tab.js")
+	#js("$javascript_folder/bootstrap-tooltip.js")
+	#js("$javascript_folder/bootstrap-popover.js")
+	#js("$javascript_folder/bootstrap-button.js")
+	#js("$javascript_folder/bootstrap-collapse.js")
+	#js("$javascript_folder/bootstrap-carousel.js")
+	#js("$javascript_folder/bootstrap-typeahead.js")
+
+</body>
+
+$theme.include($bottom_include)
+
+</html>

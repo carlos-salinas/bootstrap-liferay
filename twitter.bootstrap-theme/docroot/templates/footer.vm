@@ -1,0 +1,47 @@
+<footer id="footer" class="footer" role="contentinfo">
+		<div class="container">
+			
+			#set ($organization = $request.getAttribute('organization'))
+			
+			<hr />
+			<div class="row-fluid">
+				<!-- Contact info-->
+				<div class="span4">
+                    <h5>#language("contact-information")</h5>
+					<ul class="unstyled">
+						<li>
+							<i class="icon-map-marker"></i>
+							33211/Avda. Siderurgía 16, Asturias, Spain
+						</li>
+						<li>
+							<i class="icon-phone"></i>
+							+(34) 985 36 50 29
+						</li>
+                        <li>
+							<i class="icon-envelope"></i>
+							info@konekti.org
+						</li>
+                    </ul>
+                 </div>
+				 <!--Social networks
+				  <div class="span3">
+				
+				</div> -->
+				 <!-- Sitemap -->
+				 <div class="span8">
+					#set ($loginPortletId = "85")
+    				$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+					$velocityPortletPreferences.setValue("header-type", "none")
+    				#set($restoreRenderingPortletContent = $theme.runtime($loginPortletId, "", $velocityPortletPreferences.toString()))
+    				$restoreRenderingPortletContent
+    				$velocityPortletPreferences.reset()
+				</div>
+			</div>
+
+
+			
+			<p class="powered-by">
+    			#language("powered-by") <a href="http://www.liferay.com" rel="external">Liferay</a>
+    		</p>
+		</div>
+</footer>

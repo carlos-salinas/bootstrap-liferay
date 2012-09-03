@@ -1,0 +1,107 @@
+#macro(navItem $item)
+	
+	#if($item.isSelected())
+		<li class="active">
+	#else
+		<li>
+	#end
+		    <a href="$item.getURL()" $item.getTarget()>
+				<span>$item.icon() $item.getName()</span>
+			</a>
+		</li>
+		
+		
+#end
+
+#macro(nestedNavItems $children)
+	
+	<ul class="dropdown-menu">
+    	#foreach ($nav_child in $children)
+			#navItem($nav_child)
+       	#end
+	</ul>
+	
+#end
+
+<div id="navigation">
+	<div class="navbar navbar-fixed-top">
+		
+	  #if ($is_signed_in)
+		#dockbar()
+	  #end	
+		
+      <div class="navbar-inner">
+        <div class="container">
+			
+			 <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+			 <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			 </button>
+			 
+    		<!-- Company name link-->
+    		<a class="brand" href="$company_url">$company_name</a>
+    		
+			
+			 <!-- Everything you want hidden at 940px or less, place within here -->
+			 <div class="nav-collapse collapse">
+        		<!-- Navigation items -->
+        		<ul class="nav">
+        			#foreach ($nav_item in $nav_items)
+        				
+        				#if (!$nav_item.hasChildren())
+        					
+        					#navItem($nav_item)
+        					
+        				#else
+        					<li class="dropdown">
+        						<a  class="dropdown-toggle" data-toggle="dropdown" href="$nav_item.getURL()" $nav_item.getTarget()>
+        							<span>$nav_item.icon() $nav_item.getName()</span>
+        							<b class="caret"></b>
+        						</a>
+        						
+        						#nestedNavItems($nav_item.getChildren())
+        					</li>	
+        				#end
+    				#end		
+        		</ul>
+		
+    		 
+    			<!-- Login and registration access link -->			
+                #if (!$is_signed_in)
+    			<ul class="nav pull-right">
+    
+    				 <li>
+    					<a href="" ><i class="icon-edit icon-white"></i> Registrar</a>
+    				</li>
+    			
+    				<li class="dropdown">
+    					<a class="dropdown-toggle" data-toggle="dropdown" >
+    						<i class="icon-signin  icon-white"></i>
+    						$sign_in_text
+    						<span class="caret"></span>
+    					</a>
+    					
+    					<div class="dropdown-menu">
+    						#set ($loginPortletId = "58")
+    						$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+    						#set($restoreRenderingPortletContent = $theme.runtime($loginPortletId, "", $velocityPortletPreferences.toString()))
+    						$restoreRenderingPortletContent
+    						$velocityPortletPreferences.reset()
+    					</div>
+    				</li>
+    			</ul>
+    			#end
+			
+        		<!-- Search form-->
+        		<form class="navbar-search pull-right">
+        			<input type="text" class="search-query span2" placeholder="#language("search")">
+            	</form>
+			
+			</div>
+				
+    	</div>
+	  </div>
+	</div>
+</div>

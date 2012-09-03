@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 6.1.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_6_1_0.dtd">
+
+<layout-templates>
+	<custom>
+		<layout-template id="bootstrap_fluid" name="Bootstrap Fluid Layout">
+			<template-path>/bootstrap_fluid.tpl</template-path>
+			<wap-template-path>/bootstrap_fluid.wap.tpl</wap-template-path>
+			<thumbnail-path>/bootstrap_fluid.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>
